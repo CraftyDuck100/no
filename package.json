@@ -1,0 +1,28 @@
+{
+  "name": "discord-bot-template",
+  "version": "0.0.1",
+  "description": "A 24/7 Discord bot template for discord.js bots. Just remix and you'll be on your way!",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "canvas": "^2.6.0",
+    "discord.js": "^11.6.4",
+    "node-opus": "^0.2.7",
+    "sequelize": "^5.0.0",
+    "sqlite3": "^4.2.0",
+    "uws": "^9.148.0"
+  },
+  "engines": {
+    "node": "9.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "discord",
+    "bot",
+    "discord.js",
+    "template"
+  ]
+}
