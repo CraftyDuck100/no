@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const Canvas = require("canvas");
 
 const client = new Discord.Client();
-const { Users, Kingdom, CurrencyShop } = require("./dbObjects");
+const { Users, Kingdom, Stats, CurrencyShop } = require("./dbObjects");
 const { Op } = require("sequelize");
 const currency = new Discord.Collection();
 const PREFIX = "!";
@@ -286,12 +286,14 @@ client.on("message", async message => {
       currency.add(transferTarget.id, transferAmount);
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
-      const Stats = await Stats.findOne({ where: { user_id: target.id } });
-      if (Stats) {
+      const user = await Users.findOne({ where: { user_id: target.id } });
+      const made = await Stats.findOne({ where: { user_id: target.id } });
+      if (made) {
       } else {
-        await Stats.createStats();
+        await user.createStats();
       }
-      const number = Stats.backround;
+      const stats = await Stats.findOne({ where: { user_id: target.id } });
+      const number = stats.backround;
       const canvas = Canvas.createCanvas(500, 1000);
       const ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
