@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "canvas": "^2.6.1",
-    "discord.js": "^11.6.4",
-    "node-opus": "^0.2.7",
+    "discord.js": "^12.3.1",
+    "node-opus": "^0.3.3",
     "sequelize": "^6.3.4",
-    "sqlite3": "^4.2.0",
-    "uws": "^9.148.0"
+    "sqlite3": "^5.0.0",
+    "uws": "^99.0.0"
   },
   "engines": {
     "node": "9.x"
