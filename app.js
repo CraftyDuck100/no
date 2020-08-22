@@ -58,7 +58,9 @@ client.on("message", async message => {
       const canvas = Canvas.createCanvas(712, 1000);
       const ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage(
-        "https://github.com/CraftyDuck100/JermBot/blob/master/Cards/Bases/" + level + "Base.png?raw=true"
+        "https://github.com/CraftyDuck100/JermBot/blob/master/Cards/Bases/" +
+          level +
+          "Base.png?raw=true"
       );
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
       const image = await Canvas.loadImage(
@@ -287,22 +289,25 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
-      const list = await user.getStats();
-      const stats = await Stats.findOne({ where: { user_id: target.id } });
-      const number = stats.backround;
-      const canvas = Canvas.createCanvas(500, 1000);
+      await user.createStats();
+      const items = await user.getStats();
+      const canvas = Canvas.createCanvas(1000, 400);
       const ctx = canvas.getContext("2d");
-      const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
-            number +
-            ".png?raw=true");
+      const Bckrnd = await Stats.findOne({
+        where: { user_id: target.id }
+      });
+      const number = Bckrnd.backround;
+      const background = await Canvas.loadImage(
+        "https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
+          number +
+          ".png?raw=true"
+      );
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
       const attachment = new Discord.Attachment(
         canvas.toBuffer(),
         "this-is-our-kingdom-come.png"
       );
       message.channel.send(attachment);
-    } else if (command === "a") {
-      return Stats.create({ user_id: this.user_id, Backround: 1, amount: 1, Level: 1, Exp: 0 });
     }
   }
 });
