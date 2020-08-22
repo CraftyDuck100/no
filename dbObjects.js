@@ -57,7 +57,7 @@ Users.prototype.getStats = function() {
 };
 
 Users.prototype.createStats = function() {
-  return Stats.create({ user_id: this.user_id, Backround: 1, Level: 1, Exp: 0 });
+  return Stats.create({ user_id: this.user_id, Backround: 1, amount: 1, Level: 1, Exp: 0 });
 };
 
 Kingdom.prototype.setCCoords = async function(item, X, Y) {
