@@ -167,7 +167,7 @@ client.on("message", async message => {
         );
       } else {
         message.channel.send(
-          "You have claimed your minute bonus @" +
+          "You have claimed your minute bonus " +
             message.author +
             "! +3" +
             `<:Loot:717891324086583328>`
@@ -251,7 +251,6 @@ client.on("message", async message => {
         );
         ctx.drawImage(lootFactory, x * 100, y * 100, 200, 200);
       }
-      // Use helpful Attachment class structure to process the file for you
       const attachment = new Discord.Attachment(
         canvas.toBuffer(),
         "this-is-our-kingdom-come.png"
@@ -285,6 +284,8 @@ client.on("message", async message => {
       const transferAmount = args[2];
       const transferTarget = message.mentions.users.first();
       currency.add(transferTarget.id, transferAmount);
+    } else if (command === "stats") {
+      const canvas = Canvas.createCanvas(500, 1000);
     }
   }
 });
