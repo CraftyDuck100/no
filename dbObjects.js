@@ -18,6 +18,7 @@ Kingdom.belongsTo(CurrencyShop, { foreignKey: 'item_id', as: 'item' });
 Kingdom.belongsTo(CurrencyShop, { foreignKey: 'X', as: 'x' });
 Kingdom.belongsTo(CurrencyShop, { foreignKey: 'Y', as: 'y' });
 Kingdom.belongsTo(CurrencyShop, { foreignKey: 'Level', as: 'lvl' });
+Stats.belongsTo(CurrencyShop, { foreignKey: 'Backround', as: 'backround' });
 
 Users.prototype.addItem = async function(item) {
 	const userItem = await UserItems.findOne({
@@ -45,6 +46,20 @@ Users.prototype.getKingdom = function() {
 	return Kingdom.findAll({
 		where: { user_id: this.user_id },
 		include: ['item', 'x', 'y', 'lvl'],
+	});
+};
+
+Users.prototype.getStats = function() {
+	return Stats.findAll({
+		where: { user_id: this.user_id },
+		include: ['backround'],
+	});
+};
+
+Users.prototype.getStats = function() {
+	return Stats.findAll({
+		where: { user_id: this.user_id },
+		include: ['backround'],
 	});
 };
 
