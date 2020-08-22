@@ -11,6 +11,7 @@ const CurrencyShop = sequelize.import('models/CurrencyShop');
 sequelize.import('models/Users');
 sequelize.import('models/UserItems');
 sequelize.import('models/Kingdom');
+sequelize.import('models/Stats');
 
 const force = process.argv.includes('--force') || process.argv.includes('-f');
 

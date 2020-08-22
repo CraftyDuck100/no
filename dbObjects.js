@@ -76,4 +76,4 @@ Kingdom.prototype.upgrade = async function(item) {
 	return buildingLevel.save();
 };
 
-module.exports = { Users, CurrencyShop, UserItems, Kingdom };
+module.exports = { Users, CurrencyShop, UserItems, Kingdom, Stats };

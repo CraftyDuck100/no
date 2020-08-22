@@ -287,16 +287,23 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
-      const stats = await user.getStats();
-      if (stats === 0) {
-        await Stats.createStats;
-      } 
+      const Stats = await user.getStats();
+      if (Stats) {
+      } else {
+        await Stats.createStats();
+      }
+      const number = Stats.backround;
       const canvas = Canvas.createCanvas(500, 1000);
       const ctx = canvas.getContext("2d");
-      const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/LootFactory" +
-            lvl +
+      const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
+            number +
             ".png?raw=true");
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      const attachment = new Discord.Attachment(
+        canvas.toBuffer(),
+        "this-is-our-kingdom-come.png"
+      );
+      message.channel.send(attachment);
     }
   }
 });
