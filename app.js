@@ -287,7 +287,9 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const canvas = Canvas.createCanvas(500, 1000);
       const ctx = canvas.getContext("2d");
-      const background = await Canvas.loadImage("");
+      const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/LootFactory" +
+            lvl +
+            ".png?raw=true");
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     }
   }

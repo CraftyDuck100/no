@@ -11,6 +11,7 @@ const Users = sequelize.import('models/Users');
 const CurrencyShop = sequelize.import('models/CurrencyShop');
 const UserItems = sequelize.import('models/UserItems');
 const Kingdom = sequelize.import('models/Kingdom');
+const Stats = sequelize.import('models/Stats');
 
 UserItems.belongsTo(CurrencyShop, { foreignKey: 'item_id', as: 'item' });
 Kingdom.belongsTo(CurrencyShop, { foreignKey: 'item_id', as: 'item' });
