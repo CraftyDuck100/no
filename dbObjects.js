@@ -56,7 +56,7 @@ Users.prototype.getStats = function() {
 	});
 };
 
-Stats.prototype.createStats = function() {
+Users.prototype.createStats = function() {
   return Stats.create({ user_id: this.user_id, Backround: 1, amount: 1, Level: 1, Exp: 0 });
 };
 

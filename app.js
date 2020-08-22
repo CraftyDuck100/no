@@ -286,8 +286,7 @@ client.on("message", async message => {
       currency.add(transferTarget.id, transferAmount);
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
-      const user = await Users.findOne({ where: { user_id: target.id } });
-      const Stats = await Stats.findOne();
+      const Stats = await Stats.findOne({ where: { user_id: target.id } });
       if (Stats) {
       } else {
         await Stats.createStats();
