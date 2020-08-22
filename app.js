@@ -287,11 +287,7 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
-      const made = await Stats.findOne({ where: { user_id: target.id } });
-      if (made) {
-      } else {
-        await user.createStats();
-      }
+      const list = await user.getStats();
       const stats = await Stats.findOne({ where: { user_id: target.id } });
       const number = stats.backround;
       const canvas = Canvas.createCanvas(500, 1000);
@@ -305,6 +301,8 @@ client.on("message", async message => {
         "this-is-our-kingdom-come.png"
       );
       message.channel.send(attachment);
+    } else if (command === "a") {
+      return Stats.create({ user_id: this.user_id, Backround: 1, amount: 1, Level: 1, Exp: 0 });
     }
   }
 });
