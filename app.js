@@ -287,7 +287,7 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
-      const Stats = await user.getStats();
+      const Stats = await Stats.findOne();
       if (Stats) {
       } else {
         await Stats.createStats();

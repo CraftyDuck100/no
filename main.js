@@ -8,3 +8,4 @@ require("./dbObjects");
 require("./models/CurrencyShop");
 require("./models/UserItems");
 require("./models/Kingdom");
+require("./models/Stats");
