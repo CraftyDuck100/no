@@ -287,7 +287,10 @@ client.on("message", async message => {
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
       const user = await Users.findOne({ where: { user_id: target.id } });
-      const items = await user.getStats();
+      const stats = await user.getStats();
+      if (stats === 0) {
+        await Stats.createStats;
+      } 
       const canvas = Canvas.createCanvas(500, 1000);
       const ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/LootFactory" +
