@@ -289,8 +289,9 @@ client.on("message", async message => {
       const user = await Users.findOne({ where: { user_id: target.id } });
       const list = await user.getStats();
       const stats = await Stats.findOne({ where: { user_id: target.id } });
-      const canvas = Canvas.createCanvas(500, 1000);
+      const canvas = Canvas.createCanvas(1000, 300);
       const ctx = canvas.getContext("2d");
+      var text = ctx.measureText(target)
       const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
             stats.Backround +
             ".png?raw=true");
