@@ -302,13 +302,9 @@ client.on("message", async message => {
       );
       message.channel.send(attachment);
     } else if (command === "a") {
-      let role = message.guild.roles.find(r => r.name === "=Head Goo ;);"// Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
-let member = message.mentions.members.first();
-
-// or the person who made the command: let member = message.member;
-
-// Add the role!
-member.addRole(role).catch(console.error);
+      let role = message.guild.roles.find(r => r.name === "Stronger Goon(Mod)");
+      let member = message.mentions.members.first();
+      member.addRole(role).catch(console.error);
     }
   }
 });
