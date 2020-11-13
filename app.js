@@ -289,11 +289,10 @@ client.on("message", async message => {
       const user = await Users.findOne({ where: { user_id: target.id } });
       const list = await user.getStats();
       const stats = await Stats.findOne({ where: { user_id: target.id } });
-      const number = stats.backround;
       const canvas = Canvas.createCanvas(500, 1000);
       const ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage("https://github.com/CraftyDuck100/JermBot/blob/master/Backrounds/Backround" +
-            number +
+            stats.Backround +
             ".png?raw=true");
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
       const attachment = new Discord.Attachment(
@@ -301,10 +300,6 @@ client.on("message", async message => {
         "this-is-our-kingdom-come.png"
       );
       message.channel.send(attachment);
-    } else if (command === "a") {
-      let role = message.guild.roles.find(r => r.name === "Stronger Goon(Mod)");
-      let member = message.mentions.members.first();
-      member.addRole(role).catch(console.error);
     }
   }
 });
