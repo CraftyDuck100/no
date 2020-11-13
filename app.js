@@ -4,7 +4,7 @@ const Canvas = require("canvas");
 const client = new Discord.Client();
 const { Users, Kingdom, Stats, CurrencyShop } = require("./dbObjects");
 const { Op } = require("sequelize");
-const currency = new Discord.Collection();
+const currency = new Discord .Collection();
 const PREFIX = "!";
 
 const talkedRecently = new Set();
