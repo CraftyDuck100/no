@@ -286,11 +286,10 @@ client.on("message", async message => {
       currency.add(transferTarget.id, transferAmount);
     } else if (command === "stats") {
       const target = message.mentions.users.first() || message.author;
-      const user = await Users.findOne({ where: { user_id: target.id } });
-      const list = await user.getStats();
+      const user = await Users.findOne({ where: { user_id: message.author.id } });
       const stats = await Stats.findOne({ where: { user_id: target.id } });
       if (!stats) {
-        await Users.createStats();
+        await user.createStats();
         stats = await Stats.findOne({ where: { user_id: target.id } });
       }
       const canvas = Canvas.createCanvas(1000, 300);
@@ -310,4 +309,3 @@ client.on("message", async message => {
 });
 
 client.login(process.env.BOT_TOKEN);
-
