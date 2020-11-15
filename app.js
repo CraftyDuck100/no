@@ -38,12 +38,14 @@ client.once("ready", async () => {
 client.on("message", async message => {
   if (message.author.bot) return;
   const target = message.author;
-  currency.add(message.author.id, 1);
-  const loot = await Kingdom.findOne({
-    where: { user_id: target.id, item_id: 3 }
-  });
-  if (loot) {
-    currency.add(message.author.id, loot.Level);
+  if (!message.content.startsWith("!loot")) {
+    currency.add(message.author.id, 1);
+    const loot = await Kingdom.findOne({
+      where: { user_id: target.id, item_id: 3 }
+    });
+    if (loot) {
+      currency.add(message.author.id, loot.Level);
+    }
   }
   const user = await Users.findOne({ where: { user_id: message.author.id } });
   const stats = await Stats.findOne({ where: { user_id: target.id } });
