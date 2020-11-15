@@ -301,6 +301,9 @@ client.on("message", async message => {
             stats.Backround +
             ".png?raw=true");
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      ctx.font = '30px Impact'
+      ctx.rotate(0.1)
+      ctx.fillText(target, 50, 100)
       const attachment = new Discord.Attachment(
         canvas.toBuffer(),
         "this-is-our-kingdom-come.png"
