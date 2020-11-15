@@ -181,22 +181,24 @@ client.on("message", async message => {
     } else if (command === "help") {
       message.channel.send(
         "**!loot**: Tells you how much Loot you have" +
-          "\n" +
-          "**!leaderboard**: Tells you the top 10 richest goons" +
-          "\n" +
-          "**!shop**: Displays the shop" +
-          "\n" +
-          "**!buy *item***: Purchases ***item*** from the shop" +
-          "\n" +
-          "**!minute**: Claim your minutely bonus" +
-          "\n" +
-          "**!inventory**: Displays your inventory" +
-          "\n" +
-          "**!give *@user amount***: Gives ***person*** ***amount*** Loot" +
-          "\n" +
-          "**!kingdom**: Displays your kingdom" +
-          "\n" +
-          "**!move *item* *x* *y***: Moves your ***item*** to ***x***, ***y*** of your kingdom if you have that ***item***. Your ***item***'s top-left corner will be the be in the ***x*** ***y*** sqaure of your Kingdom"
+        "\n" +
+        "**!leaderboard**: Tells you the top 10 richest goons" +
+        "\n" +
+        "**!shop**: Displays the shop" +
+        "\n" +
+        "**!buy *item***: Purchases ***item*** from the shop" +
+        "\n" +
+        "**!minute**: Claim your minutely bonus" +
+        "\n" +
+        "**!inventory**: Displays your inventory" +
+        "\n" +
+        "**!give *@user amount***: Gives ***person*** ***amount*** Loot" +
+        "\n" +
+        "**!kingdom**: Displays your kingdom" +
+        "\n" +
+        "**!move *item* *x* *y***: Moves your ***item*** to ***x***, ***y*** of your kingdom if you have that ***item***. Your ***item***'s top-left corner will be the be in the ***x*** ***y*** sqaure of your Kingdom" +
+        "\n" +
+        "**!stats (*username*)**: Displays the you're or ***username***'s stats"
       );
     } else if (command === "kingdom") {
       const target = message.mentions.users.first() || message.author;
