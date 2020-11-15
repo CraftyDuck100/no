@@ -45,6 +45,11 @@ client.on("message", async message => {
   if (loot) {
     currency.add(message.author.id, loot.Level);
   }
+  const user = await Users.findOne({ where: { user_id: message.author.id } });
+  const stats = await Stats.findOne({ where: { user_id: target.id } });
+  if (!stats) {
+    await user.createStats();
+  }
   if (!message.content.startsWith(PREFIX)) return;
   const input = message.content.slice(PREFIX.length).trim();
   if (!input.length) return;
@@ -303,8 +308,7 @@ client.on("message", async message => {
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
       ctx.fillStyle = 'rgb(0,200,200)'
       ctx.font = '30px Impact'
-      ctx.rotate(0.1)
-      ctx.fillText(message.mentions.user.first || message.author, 50, 100)
+      ctx.fillText((message.mentions.users.first() || message.author), 50, 100)
       const attachment = new Discord.Attachment(
         canvas.toBuffer(),
         "this-is-our-kingdom-come.png"
