@@ -7,12 +7,12 @@
     "start": "node main.js"
   },
   "dependencies": {
-    "canvas": "^2.6.0",
-    "discord.js": "^11.6.4",
-    "node-opus": "^0.2.7",
-    "sequelize": "^5.0.0",
-    "sqlite3": "^4.2.0",
-    "uws": "^9.148.0"
+    "canvas": "^2.8.0",
+    "discord.js": "^13.1.0",
+    "node-opus": "^0.3.3",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2",
+    "uws": "^200.0.0"
   },
   "engines": {
     "node": "9.x"
